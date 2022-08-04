@@ -6,9 +6,7 @@ import "kong/model/negotiation.proto";
 
 option go_package = "github.com/kong/koko/internal/gen/wrpc/kong/service/negotiation/v1;v1";
 
-// NegotiationService allows DP and CP to agree on services that can be used on
-// a wRPC connection
-//
+// NegotiationService allows DP to ask for services and CP answer with the accepted version of each
 // +wrpc:service-id=5
 service NegotiationService {
   // NegotiateServices must be the first RPC call initiated by the DP upon a
