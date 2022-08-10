@@ -19,8 +19,6 @@ The `NegotiationService` service is implemented as single wRPC call
   1. Request data:
       - `node`: a structure containing DP node level metadata with the
         following fields:
-        - `id`: a string value containing the node ID of the DP. This value must
-          be unique across all nodes of a cluster on a best-effort basis.
         - `type`: an identifier that recognizes the type of the DP node.  This
           MUST be set to "KONG" for Kong Gateway nodes. CP MUST verify if this
           is set.
@@ -28,6 +26,9 @@ The `NegotiationService` service is implemented as single wRPC call
           is same as Kong version for the Kong Gateway DP.
         - `hostname`: hostname of the underlying node of the DP.  This field is
           optional and is meant to be used for debugging purposes.
+
+        Note that the `version` and `hostname` fields repeat information which
+        MUST be present as query parameters in the WebSocket UPGRADE command.
       - `services_requested`: a repeated list of services being
         requested by the DP. Each object within the array with the
         following keys:
