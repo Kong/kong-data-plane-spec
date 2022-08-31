@@ -7,11 +7,9 @@ option go_package = "github.com/kong/koko/internal/gen/wrpc/kong/model;model";
 message NegotiateServicesRequest {
   DPNodeDescription node = 1;
   repeated ServiceRequest services_requested = 2;
-  map<string, string> metadata = 3;
 }
 
 message DPNodeDescription {
-  string id = 1;
   string type = 2;
   string version = 3;
   string hostname = 4;
